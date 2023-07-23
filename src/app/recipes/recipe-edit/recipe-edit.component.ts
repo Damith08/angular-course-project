@@ -30,6 +30,15 @@ export class RecipeEditComponent {
     console.log(this.recipeForm);
   }
 
+  onAddIngredient() {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl(),
+      })
+    );
+  }
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
